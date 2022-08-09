@@ -4,8 +4,8 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import pandas as pd
-from sklearn.metrics import r2_score  #R square
-from sklearn.metrics import mean_squared_error #均方误差
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error
 
 
 df_total=pd.read_csv(r'D:\TotalSamples.csv')
@@ -21,11 +21,11 @@ x_test=torch.tensor(df_test.iloc[:,6:131].values).double()
 y_test=torch.tensor(df_test.iloc[:,1].values).double()
 
 
-def MSE(predicted,real):   #计算平均相对误差MRE  见陈祖煜论文
+def MSE(predicted,real):
     MSE=mean_squared_error(real,predicted)
     return MSE
 
-def R_2(predicted,real):  # 计算拟合优度  见语雀笔记有
+def R_2(predicted,real):
     R_2=r2_score(real,predicted)
     return R_2
 
